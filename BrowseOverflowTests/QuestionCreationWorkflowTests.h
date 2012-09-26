@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface QuestionCreationTests : SenTestCase
+@interface QuestionCreationWorkflowTests : SenTestCase
 
 @end
