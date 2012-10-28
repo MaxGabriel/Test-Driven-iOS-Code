@@ -12,6 +12,10 @@
 
 //@property NSArray *arrayToReturn;
 
+enum QuestionBuilderError {
+  QuestionBuilderInvalidJSONError,
+    QuestionBuilderMissingDataError,
+};
 
 - (NSArray *)questionsFromJSON: (NSString *)objectNotation error: (NSError **)error;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-533" y="36"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -61,7 +61,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="5" y="64"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -83,13 +83,22 @@
                                     <constraint firstAttribute="height" constant="128" id="hoy-S4-rNK"/>
                                 </constraints>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qF-fM-6Ab">
+                                <items>
+                                    <barButtonItem title="Item" id="Ftd-o2-QH6"/>
+                                    <barButtonItem title="Item" id="6tW-cY-6QK"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="27" firstAttribute="centerY" secondItem="22" secondAttribute="centerY" type="default" id="7cE-gL-0wv"/>
                             <constraint firstItem="mDk-0X-rUc" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="13" id="ASH-oI-a94"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
+                            <constraint firstItem="8qF-fM-6Ab" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="UTT-Uv-xhf"/>
+                            <constraint firstItem="8qF-fM-6Ab" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="fRI-Lj-0PC"/>
                             <constraint firstItem="mDk-0X-rUc" firstAttribute="top" secondItem="22" secondAttribute="top" constant="55" id="iRg-4V-3CS"/>
+                            <constraint firstItem="8qF-fM-6Ab" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="jUd-Fa-oUX"/>
                             <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
                         </constraints>
                     </view>
@@ -100,26 +109,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="12" y="-603"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vPO-bg-Nma">
+            <objects>
+                <viewController id="Pi0-Fy-eIc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kbD-5b-gLX">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="q9J-BB-IV6">
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="awR-yN-ImM"/>
+                                    <constraint firstAttribute="height" constant="150" id="q1O-it-kGq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="temple.jpg">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ini-r1-7b8">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="217" id="MJj-J4-68c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button more button tex" image="Dfd">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="signupBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-As-itr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="j0i-aF-K64"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1B-gQ-hef">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="oP3-J5-JYZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="Label with lots and lots and lots of text" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="192" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-pD-MrV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="JUn-h0-e3P"/>
+                                    <constraint firstAttribute="width" constant="192" id="qE3-93-p2e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS9-cD-BnN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JLQ-o2-Tu0"/>
+                                    <constraint firstAttribute="height" constant="149" id="Rjb-OI-yZK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="temple.jpg">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t1B-gQ-hef" firstAttribute="leading" secondItem="kbD-5b-gLX" secondAttribute="leading" constant="89" id="Ewl-Yc-AkU"/>
+                            <constraint firstItem="q9J-BB-IV6" firstAttribute="top" secondItem="kbD-5b-gLX" secondAttribute="top" constant="103" id="QJj-s1-9wI"/>
+                            <constraint firstItem="PZg-As-itr" firstAttribute="leading" secondItem="kbD-5b-gLX" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Rh0-kr-OVC"/>
+                            <constraint firstItem="VYz-pD-MrV" firstAttribute="top" secondItem="kbD-5b-gLX" secondAttribute="top" constant="6" id="VTG-sX-pJT"/>
+                            <constraint firstAttribute="bottom" secondItem="t1B-gQ-hef" secondAttribute="bottom" constant="207" id="egM-YI-oHk"/>
+                            <constraint firstAttribute="bottom" secondItem="PZg-As-itr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="elj-Tq-JeX"/>
+                            <constraint firstItem="HS9-cD-BnN" firstAttribute="top" secondItem="kbD-5b-gLX" secondAttribute="top" constant="149" id="fMY-du-a0X"/>
+                            <constraint firstAttribute="bottom" secondItem="Ini-r1-7b8" secondAttribute="bottom" constant="131" id="fRD-Y4-Fdx"/>
+                            <constraint firstItem="VYz-pD-MrV" firstAttribute="leading" secondItem="kbD-5b-gLX" secondAttribute="leading" constant="31" id="lIS-D3-8Zl"/>
+                            <constraint firstItem="Ini-r1-7b8" firstAttribute="leading" secondItem="kbD-5b-gLX" secondAttribute="leading" constant="46" id="llL-kl-yPM"/>
+                            <constraint firstAttribute="trailing" secondItem="PZg-As-itr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="o8M-WH-k26"/>
+                            <constraint firstAttribute="trailing" secondItem="HS9-cD-BnN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="prC-Jj-lus"/>
+                            <constraint firstItem="q9J-BB-IV6" firstAttribute="leading" secondItem="kbD-5b-gLX" secondAttribute="leading" constant="-9" id="wc1-R2-jTs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4O-A5-9dI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="-383"/>
         </scene>
     </scenes>
     <resources>
         <image name="Default-568h@2x.png" width="640" height="1136"/>
+        <image name="Dfd" width="16" height="16"/>
+        <image name="signupBackground.png" width="190" height="34"/>
+        <image name="temple.jpg" width="100" height="100"/>
     </resources>
-    <classes>
-        <class className="BODetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BODetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BOMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BOMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

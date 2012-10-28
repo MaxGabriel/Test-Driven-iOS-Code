@@ -11,7 +11,7 @@
 @class StackOverflowCommunicator;
 @class Topic;
 @class QuestionBuilder;
-
+@class Question;
 
 
 @protocol StackOverflowManagerDelegate <NSObject>
@@ -43,6 +43,9 @@ extern NSString *StackOverflowManagerError;
 - (void)searchingForQuestionsFailedWithError:(NSError *)error;
 
 - (void)receivedQuestionsFromJSON:(NSString *)objectNotation;
+
+#warning Unimplemented. 
+- (void)fetchBodyForQuestion:(Question *)question;
 
 
 @end

@@ -21,6 +21,8 @@
 @property NSError *underlyingError;
 @property NSArray *questionArray;
 @property FakeQuestionBuilder *questionBuilder;
+@property Question *questionToFetch;
+@property MockStackOverflowCommunicator *communicator;
 
 @end
 
@@ -28,8 +30,8 @@
 
 - (void)setUp {
     
-    Question *question = [[Question alloc] init];
-    self.questionArray = @[question]; // property or what? book is unclear. 
+//    Question *question = [[Question alloc] init];
+//    self.questionArray = @[question]; // property or what? book is unclear.
     
     self.questionBuilder = [[FakeQuestionBuilder alloc] init];
     
@@ -45,6 +47,15 @@
     
     self.mgr.questionBuilder = self.questionBuilder;
     self.mgr.delegate = self.delegate;
+    
+    self.questionToFetch = [[Question alloc] init];
+    self.questionToFetch.questionID = 1234;
+    
+    self.questionArray = @[self.questionToFetch];
+    self.communicator = [[MockStackOverflowCommunicator alloc] init];
+    self.mgr.communicator = self.communicator;
+    
+    
 }
 
 - (void)tearDown {
@@ -94,9 +105,7 @@
 
     [self.mgr searchingForQuestionsFailedWithError:self.underlyingError];
     
-    NSLog(@"Fetch error is %@",self.delegate.fetchError);
-    NSLog(@"User info is %@",[self.delegate.fetchError userInfo]);
-    NSLog(@"Underlying error is %@",[self.delegate.fetchError.userInfo objectForKey:NSUnderlyingErrorKey]);
+
     
     STAssertEqualObjects([[self.delegate.fetchError userInfo] objectForKey: NSUnderlyingErrorKey],self.underlyingError,@"The underlying error should be available to client code");
 }
@@ -107,9 +116,7 @@
 - (void)testQuestionJSONIsPassedToQuestionBuilder {
     NSString *fakeJSON = @"Fake JSON";
     
-    NSLog(@"Manager is %@",self.mgr);
-    NSLog(@"Manager QB is %@",self.mgr.questionBuilder);
-    NSLog(@"Self QB is %@",self.questionBuilder);
+    
     
     [self.mgr receivedQuestionsFromJSON:fakeJSON];
     
@@ -125,17 +132,12 @@
     self.questionBuilder.arrayToReturn = nil;
     self.questionBuilder.errorToSet = self.underlyingError;
     
-    NSLog(@"Delegate is %@",self.delegate);
-    NSLog(@"Manager's Question Builder is %@",self.mgr.questionBuilder);
-    NSLog(@"Question builder is %@",self.questionBuilder);
-    NSLog(@"Delegate's questions are %@",self.delegate.receivedQuestions);
-    NSLog(@"Manager's delegate is %@",self.mgr.delegate); // Equal.
+    
     
 
     [self.mgr receivedQuestionsFromJSON:@"Fake JSON"];
     
-    NSLog(@"Delegate's error is: %@",self.delegate.fetchError);
-    NSLog(@"User info is: %@",[self.delegate.fetchError userInfo]);
+    
     
     
     STAssertNotNil([[self.delegate.fetchError userInfo] objectForKey:NSUnderlyingErrorKey], @"The delegate should have found out about the error");
@@ -170,6 +172,29 @@
 }
 
 
+
+#pragma mark - Communicator Tests
+
+- (void)testAskingForQuestionBodyMeansRequestingData {
+    [self.mgr fetchBodyForQuestion:self.questionToFetch];
+    STAssertTrue([self.communicator wasAskedToFetchBody], @"The communicator should need to retrieve the data for the question body");
+}
+
+- (void)testDelegateNotifiedOfFailureToFetchQuestion {
+    [self.mgr fetchingQuestionBodyFailedWithError:self.underlyingError];
+    STAssertNotNil(self.delegate.fetchError.userInfo objectForKey:NSUnderlyingErrorKey, @"Delegate should have found out about this error");
+}
+
+- (void)testManagerPassesRetrievedQuestionBodyToQuestionBuilder {
+    [self.mgr receivedQuestionBodyJSON: @"Fake JSON"];
+    STAssertEqualObjects(self.questionBuilder.JSON, @"Fake JSON", @"Successfully-retrieved data should be passed to the builder");
+}
+
+- (void)testManagerPassesQuestionItWasSentToQuestionBuilderForFillingIn {
+    [self.mgr fetchBodyForQuestion:self.questionToFetch];
+    [self.mgr receivedQuestionBodyJSON: @"Fake JSON"];
+    STAssertEqualObjects(self.questionBuilder.questionToFill, self.questionToFetch, @"The question should have been passed to the builder");
+}
 
 @end
 

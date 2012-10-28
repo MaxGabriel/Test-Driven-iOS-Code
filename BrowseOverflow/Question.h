@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Person;
 
 @class Answer;
 
@@ -16,6 +17,9 @@
 @property (copy) NSString *title;
 @property int score;
 @property (readonly) NSArray *answers;
+
+@property (nonatomic, strong) Person *asker;
+@property (nonatomic) int questionID;
 
 - (void)addAnswer:(Answer *)answer;
 

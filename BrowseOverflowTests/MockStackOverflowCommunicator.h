@@ -12,6 +12,7 @@
 
 @property (readonly)BOOL wasAskedToFetchQuestions;
 
-
+#warning unimplemented. 
+@property (readonly)BOOL wasAskedToFetchBody;
 
 @end
